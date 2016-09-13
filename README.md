@@ -1,14 +1,11 @@
-<<<<<<< HEAD
-# flask-weather-app
-=======
-# Flask Package
 
-Create a flask app as a package and a run script to actually run the application
+# flask-weather-app
+
+Creating flask app to display weather
 
 ## Setup
-* `mkvirtualenv -p python3 flask-package`
-* `pip install -r requirements.txt`
+* mkvirtualenv -p python3 flask-weather
+* pip install -r requirements.txt
 
 ## Run the flask app
-`python run.py`
->>>>>>> a9d281fee091391731c5802db01bfa90931b5916
+python run.py
