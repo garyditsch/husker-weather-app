@@ -12,6 +12,10 @@ def index():
 def current_weather():
     weather_form = WeatherForm(request.form)
 
+    if request.method == "POST" and weather_form.validate():
+        #do stuff with the valid form
+        pass
+
 
     return render_template("current.html", 
         weather_form=weather_form)
