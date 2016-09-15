@@ -30,7 +30,8 @@ class OpenWeatherAPI():
         payload = self.get_payload(q=q)
         url = "{}{}".format(self.base_url, "/weather")
         r = requests.get(url, params=payload)
-        result = r.json()
+        result = result_or_error(r.json())
+
         return DailyWeather(description = result['weather'][0]['description'],
             icon = result['weather'][0]['icon'],
             dt = result['dt'],
@@ -68,3 +69,8 @@ class DailyWeather():
         def __str__(self):
             return "Description: {}, Temp: {}".format(self.description, self.temp)
 
+def result_or_error(result):
+    if str(result.get("cod")) != "200":
+        raise ValueError("City not found")
+
+    return result

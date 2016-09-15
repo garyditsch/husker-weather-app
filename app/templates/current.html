@@ -14,10 +14,15 @@
                         <div class="caption">
                             <h4>
                             <img src="http://openweathermap.org/img/w/{{weather_item.icon}}.png" alt="">
-                            {{weather_item.temp}} &deg;F
+                            {{weather_item.temp}} &deg;
+                            {% if weather_form.units.data == "imperial" %}
+                                F
+                            {% else %}
+                                C
+                            {% endif %}
                             </h4>
-                            {{weather_item.description.title()}} on {{weather_item.dt}}
-                            <<table class="table table-striped">
+                            {{weather_item.description.title()}} on {{weather_item.dt | timestamp_to_date}}
+                            <table class="table table-striped">
                                 <tbody>
                                     <tr>
                                         <td>Conditions</td>
@@ -37,11 +42,11 @@
                                     </tr>
                                     <tr>
                                         <td>Sunrise</td>
-                                        <td>{{weather_item.sunrise}}</td>
+                                        <td>{{weather_item.sunrise | timestamp_to_time}}</td>
                                     </tr>
                                     <tr>
                                         <td>Sunset</td>
-                                        <td>{{weather_item.sunset}}</td>
+                                        <td>{{weather_item.sunset | timestamp_to_time}}</td>
                                     </tr>
                                 </tbody>
                             </table>
