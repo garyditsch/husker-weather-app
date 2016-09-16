@@ -42,8 +42,8 @@
                     <td>Saturday, Sep. 24</td>
                     <td><strong>at Northwestern Wildcats </strong></td>
                     <td>Ryan Field, Evanston, IL</td>
-                    <td></td>
-                    <td></td>
+                    <td>{{ evanston_weather_current.temp }} &deg; F</td>
+                    <td><a href="{{ url_for('evanston_weather_forecast') }}">Weather Forecast</a></td>
                   </tr>
                   <tr class="home-game">
                     <td>Saturday, Oct. 1</td>
@@ -55,8 +55,8 @@
                     <td>Saturday, Oct. 15</td>
                     <td><strong>at Indiana Hoosiers </strong></td>
                     <td> Memorial Stadium, Bloomington, IN</td>
-                    <td></td>
-                    <td></td>
+                    <td>{{ bloomington_weather_current.temp }} &deg; F</td>
+                    <td><a href="{{ url_for('bloomington_weather_forecast') }}">Weather Forecast</a></td>
                   <tr class="home-game">
                     <td>Saturday, Oct. 22</td>
                     <td><strong>Purdue Boilermakers </strong></td>
@@ -68,15 +68,15 @@
                     <td>Saturday, Oct. 29</td>
                     <td><strong>at Wisconsin Badgers </strong></td>
                     <td>Camp Randall Stadium, Madison, WI</td>  
-                    <td></td>
-                    <td></td>
+                    <td>{{ madison_weather_current.temp }} &deg; F</td>
+                    <td><a href="{{ url_for('bloomington_weather_forecast') }}">Weather Forecast</a></td>
                   </tr>
                   <tr>
                     <td>Saturday, Nov. 5</td>
                     <td><strong>at Ohio State Buckeyes </strong></td>
                     <td>Ohio Stadium, Columbus, OH</td>
-                    <td></td>
-                    <td></td>
+                    <td>{{ columbus_weather_current.temp }} &deg; F</td>
+                    <td><a href="{{ url_for('columbus_weather_forecast') }}">Weather Forecast</a></td>
                   </tr>
                   <tr class="home-game">
                     <td>Saturday, Nov. 12</td>
@@ -96,15 +96,15 @@
                     <td>Friday, Nov. 25</td>
                     <td><strong>at Iowa Hawkeyes </strong></td>
                     <td>Kinnick Stadium, Iowa City, IA</td>  
-                    <td></td>
-                    <td></td>
+                    <td>{{ iowa_city_weather_current.temp }} &deg; F</td>
+                    <td><a href="{{ url_for('iowa_city_weather_forecast') }}">Weather Forecast</a></td>
                   </tr>
                   <tr>
                     <td>Saturday, Dec. 3</td>
                     <td><strong>Big Ten Championship Game</td>
                     <td>Lucas Oil Stadium, Indianapolis, IN</td>
-                    <td></td>
-                    <td></td>
+                    <td>{{ indianapolis_weather_current.temp }} &deg; F</td>
+                    <td><a href="{{ url_for('indianapolis_weather_forecast') }}">Weather Forecast</a></td>
                   </tr>
             </table>
         </div>

@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+    
+    <div class="container">
+    <div class="jumbotron">
+        <h4>Enter your city:</h4>
+        {% include "includes/weather-form.html" %}
+    </div>
+    </div>
+    {% if weather_item %}
+        <div class="weather-container">
+            <h3>Current weather in the city of {{ weather_form.city.data }}</h3>
+            <div class="row">
+                <div class="col-lg-12">
+                    {% include "includes/daily-weather.html" %}
+                </div>
+
+            </div>
+
+        </div>
+    {% endif %}
+    <hr>
+
+    {% if weather_list %}
+        <div class="weather-container">
+        <h3>Weather forecast in the city of {{ weather_form.city.data }}</h3>
+        <div class="row">
+            {% for weather_item in weather_list %}
+                <div class="col-md-3">
+                    {% include "includes/daily-weather.html" %}
+                </div>
+            {% endfor %}
+          </div>
+        </div>
+    {% endif %}
+
+{% endblock %}

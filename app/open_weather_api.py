@@ -43,7 +43,7 @@ class OpenWeatherAPI():
             sunset = result['sys']['sunset']
             )
 
-    def get_daily_weather(self, city, country_code="", num_days=16):
+    def get_daily_weather(self, city, country_code="", num_days=12):
         q = ""
 
         if country_code:
@@ -71,8 +71,21 @@ class OpenWeatherAPI():
             weather_list.append(daily_weather)
         return weather_list
 
-    def get_lincoln_weather(self):
-        id = "5072006"
+    def get_lincoln_weather(self, city):
+        if city == "lincoln":
+            id = "5072006"
+        elif  city == "evanston":
+            id = "4891382"
+        elif city == "bloomington":
+            id = "4254679"
+        elif city == "madison":
+            id = "5261457"
+        elif city == "iowa_city":
+            id = "4862034"
+        elif city == "columbus":
+            id = "4509177"
+        elif city == "indianapolis": 
+            id = "4259418"
         
         payload = self.get_payload(id=id)
         url = "{}{}".format(self.base_url, "/weather")
@@ -90,9 +103,23 @@ class OpenWeatherAPI():
             sunset = result['sys']['sunset']
             )
 
-    def get_lincoln_forecast(self, num_days=7):
-        id = "5072006"
-        
+    def get_lincoln_forecast(self, city, num_days=7):
+
+        if city == "lincoln":
+            id = "5072006"
+        elif  city == "evanston":
+            id = "4891382"
+        elif city == "bloomington":
+            id = "4254679"
+        elif city == "madison":
+            id = "5261457"
+        elif city == "iowa_city":
+            id = "4862034"
+        elif city == "columbus":
+            id = "4509177"
+        elif city == "indianapolis": 
+            id = "4259418"
+
         payload = self.get_payload(id=id)
         url = "{}{}".format(self.base_url, "/forecast/daily")
         r = requests.get(url, params=payload)
