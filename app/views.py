@@ -1,5 +1,7 @@
+import os
 from flask import render_template, request
 from flask import flash
+
 
 from app import app
 from app.forms import WeatherForm
@@ -16,7 +18,7 @@ def index():
     evanston_weather_current = None
     madison_weather_current = None
 
-    api = OpenWeatherAPI(app.config["OPEN_WEATHER_API_KEY"])
+    api = OpenWeatherAPI(os.environ["OPEN_WEATHER_API_KEY"])
     lincoln_weather_current = api.get_lincoln_weather("lincoln")
     bloomington_weather_current = api.get_lincoln_weather("bloomington")
     columbus_weather_current = api.get_lincoln_weather("columbus")
