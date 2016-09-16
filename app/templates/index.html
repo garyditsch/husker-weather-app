@@ -1,18 +1,112 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <div class="jumbotron jumbotron-index">
-        <h2>
-            Get the weather or 16 day forecast!
-        </h2>
-        <div class="row">
-            <div class="col-md-6">
-                <a href="{{ url_for('current_weather') }}">Current Weather</a>
-            </div>
-            <div class="col-md-6">
-                <a href="{{ url_for('forecast_weather') }}">16 Day Forecast</a>
-            </div>
+        <div class="panel panel-default">
+              <!-- Default panel contents -->
+              <div class="panel-heading">Current Weather at Gameday Locations</div>
+              <div class="panel-body">
+                <p>...</p>
+              </div>
+
+              <!-- Table -->
+              <table class="table">
+                <tr>
+                    <td>Date</td>
+                    <td>Opponent</td>
+                    <td>Location</td>
+                    <td>Current Temp</td>
+                    <td>7 Day Forecast</td>
+                </tr>
+                  <tr class="home-game">
+                    <td>Saturday, Sep. 3</td>
+                    <td><strong>Fresno State Bulldogs </strong></td>
+                    <td>Memorial Stadium, Lincoln, NE</td>
+                    <td>{{lincoln_weather_current.temp}} &deg; F</td>
+                    <td><a href="{{ url_for('lincoln_weather_forecast') }}">Weather Forecast</a></td>
+                  </tr>
+                  <tr class="home-game">
+                    <td>Saturday, Sep. 10</td>
+                    <td><strong>Wyoming Cowboys </strong></td>
+                    <td>Memorial Stadium, Lincoln, NE</td>
+                    <td>{{lincoln_weather_current.temp}} &deg; F</td>
+                    <td><a href="{{ url_for('lincoln_weather_forecast') }}">Weather Forecast</a></td>
+                  </tr>
+                  <tr class="home-game">
+                    <td>Saturday, Sep. 17</td>
+                    <td><strong>Oregon Ducks </strong></td>
+                    <td>Memorial Stadium, Lincoln, NE</td>
+                    <td>{{lincoln_weather_current.temp}} &deg; F</td>
+                    <td><a href="{{ url_for('lincoln_weather_forecast') }}">Weather Forecast</a></td>
+                  </tr>
+                  <tr>
+                    <td>Saturday, Sep. 24</td>
+                    <td><strong>at Northwestern Wildcats </strong></td>
+                    <td>Ryan Field, Evanston, IL</td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr class="home-game">
+                    <td>Saturday, Oct. 1</td>
+                    <td><strong>Illinois Fighting Illini</strong></td>
+                    <td>Memorial Stadium, Lincoln, NE</td>
+                    <td>{{lincoln_weather_current.temp}} &deg; F</td>
+                    <td><a href="{{ url_for('lincoln_weather_forecast') }}">Weather Forecast</a></td>
+                  <tr>
+                    <td>Saturday, Oct. 15</td>
+                    <td><strong>at Indiana Hoosiers </strong></td>
+                    <td> Memorial Stadium, Bloomington, IN</td>
+                    <td></td>
+                    <td></td>
+                  <tr class="home-game">
+                    <td>Saturday, Oct. 22</td>
+                    <td><strong>Purdue Boilermakers </strong></td>
+                    <td>Memorial Stadium, Lincoln, NE</td>
+                    <td>{{lincoln_weather_current.temp}} &deg; F</td>
+                    <td><a href="{{ url_for('lincoln_weather_forecast') }}">Weather Forecast</a></td>
+                  </tr>
+                  <tr>
+                    <td>Saturday, Oct. 29</td>
+                    <td><strong>at Wisconsin Badgers </strong></td>
+                    <td>Camp Randall Stadium, Madison, WI</td>  
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>Saturday, Nov. 5</td>
+                    <td><strong>at Ohio State Buckeyes </strong></td>
+                    <td>Ohio Stadium, Columbus, OH</td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr class="home-game">
+                    <td>Saturday, Nov. 12</td>
+                    <td><strong>Minnesota Golden Gophers </strong></td>
+                    <td>Memorial Stadium, Lincoln, NE</td>
+                    <td>{{lincoln_weather_current.temp}} &deg; F</td>
+                    <td><a href="{{ url_for('lincoln_weather_forecast') }}">Weather Forecast</a></td>
+                  </tr>
+                  <tr class="home-game">
+                    <td>Saturday, Nov. 19</td>
+                    <td><strong>Maryland Terrapins </strong></td>
+                    <td>Memorial Stadium, Lincoln, NE</td>
+                   <td>{{lincoln_weather_current.temp}} &deg; F</td>
+                    <td><a href="{{ url_for('lincoln_weather_forecast') }}">Weather Forecast</a></td>
+                  </tr>
+                  <tr>
+                    <td>Friday, Nov. 25</td>
+                    <td><strong>at Iowa Hawkeyes </strong></td>
+                    <td>Kinnick Stadium, Iowa City, IA</td>  
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>Saturday, Dec. 3</td>
+                    <td><strong>Big Ten Championship Game</td>
+                    <td>Lucas Oil Stadium, Indianapolis, IN</td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+            </table>
         </div>
 
-    </div>
 {% endblock %}

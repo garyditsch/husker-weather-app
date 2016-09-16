@@ -23,3 +23,7 @@ body {
     background-color: #fff;
     padding-bottom: 10px;
 }
+
+tr.home-game {
+    background-color: #eee;
+}

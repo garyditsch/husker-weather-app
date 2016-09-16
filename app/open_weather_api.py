@@ -71,6 +71,46 @@ class OpenWeatherAPI():
             weather_list.append(daily_weather)
         return weather_list
 
+    def get_lincoln_weather(self):
+        id = "5072006"
+        
+        payload = self.get_payload(id=id)
+        url = "{}{}".format(self.base_url, "/weather")
+        r = requests.get(url, params=payload)
+        result = result_or_error(r.json())
+
+        return DailyWeather(description = result['weather'][0]['description'],
+            icon = result['weather'][0]['icon'],
+            dt = result['dt'],
+            temp = result['main']['temp'],
+            wind = result['wind']['speed'],
+            pressure = result['main']['pressure'],
+            humidity = result['main']['humidity'],
+            sunrise = result['sys']['sunrise'],
+            sunset = result['sys']['sunset']
+            )
+
+    def get_lincoln_forecast(self, num_days=7):
+        id = "5072006"
+        
+        payload = self.get_payload(id=id)
+        url = "{}{}".format(self.base_url, "/forecast/daily")
+        r = requests.get(url, params=payload)
+        result = result_or_error(r.json())
+
+        husker_forecast = []
+        for item in result["list"]:
+            husker_weather = DailyWeather(
+                icon = item['weather'][0]['icon'],
+                description = item['weather'][0]['description'],
+                temp = item['temp']['day'],
+                temp_night  = item['temp']['night'],
+                dt = item['dt'],
+                pressure = item['pressure'],
+                humidity = item['humidity'],
+                )
+            husker_forecast.append(husker_weather)
+        return husker_forecast
 
 class DailyWeather():
     def __init__(self, description="",

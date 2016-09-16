@@ -8,7 +8,12 @@ from app.open_weather_api import OpenWeatherAPI
 @app.route("/")
 @app.route("/index")
 def index():
-    return render_template("index.html")
+    lincoln_weather_current = None
+
+    api = OpenWeatherAPI(app.config["OPEN_WEATHER_API_KEY"])
+    lincoln_weather_current = api.get_lincoln_weather()
+
+    return render_template("index.html", lincoln_weather_current=lincoln_weather_current)
 
 @app.route("/current", methods=["GET", "POST"])
 def current_weather():
@@ -26,6 +31,8 @@ def current_weather():
             weather_item = api.get_current_weather(city, country_code)
         except ValueError as e:
             flash(str(e), "warning")
+
+    print(weather_item)
 
 
     return render_template("current.html", 
@@ -49,3 +56,12 @@ def forecast_weather():
             flash(str(e), "warning")   
 
     return render_template("forecast.html", weather_form=weather_form, weather_list=weather_list)
+
+@app.route("/lincoln")
+def lincoln_weather_forecast():
+    lincoln_forecast = None
+    
+    api = OpenWeatherAPI(app.config["OPEN_WEATHER_API_KEY"])
+    lincoln_forecast = api.get_lincoln_forecast()
+       
+    return render_template("lincoln.html", lincoln_forecast=lincoln_forecast)
