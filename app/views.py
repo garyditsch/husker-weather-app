@@ -45,7 +45,7 @@ def current_weather():
 
         try: 
 
-            api = OpenWeatherAPI(app.config["OPEN_WEATHER_API_KEY"], weather_form.units.data)
+            api = OpenWeatherAPI(os.environ['OPEN_WEATHER_API_KEY'], weather_form.units.data)
             weather_item = api.get_current_weather(city, country_code)
         except ValueError as e:
             flash(str(e), "warning")
@@ -68,7 +68,7 @@ def forecast_weather():
 
         try: 
 
-            api = OpenWeatherAPI(app.config["OPEN_WEATHER_API_KEY"], weather_form.units.data)
+            api = OpenWeatherAPI(os.environ['OPEN_WEATHER_API_KEY'], weather_form.units.data)
             weather_list = api.get_daily_weather(city, country_code)
         except ValueError as e:
             flash(str(e), "warning")   
@@ -79,7 +79,7 @@ def forecast_weather():
 def lincoln_weather_forecast():
     lincoln_forecast = None
     
-    api = OpenWeatherAPI(app.config["OPEN_WEATHER_API_KEY"])
+    api = OpenWeatherAPI(os.environ['OPEN_WEATHER_API_KEY'])
     lincoln_forecast = api.get_lincoln_forecast('lincoln')
        
     return render_template("lincoln.html", lincoln_forecast=lincoln_forecast)
@@ -88,7 +88,7 @@ def lincoln_weather_forecast():
 def bloomington_weather_forecast():
     lincoln_forecast = None
     
-    api = OpenWeatherAPI(app.config["OPEN_WEATHER_API_KEY"])
+    api = OpenWeatherAPI(os.environ['OPEN_WEATHER_API_KEY'])
     lincoln_forecast = api.get_lincoln_forecast('bloomington')
        
     return render_template("bloomington.html", lincoln_forecast=lincoln_forecast)
@@ -97,7 +97,7 @@ def bloomington_weather_forecast():
 def columbus_weather_forecast():
     lincoln_forecast = None
     
-    api = OpenWeatherAPI(app.config["OPEN_WEATHER_API_KEY"])
+    api = OpenWeatherAPI(os.environ['OPEN_WEATHER_API_KEY'])
     lincoln_forecast = api.get_lincoln_forecast('columbus')
        
     return render_template("columbus.html", lincoln_forecast=lincoln_forecast)
@@ -106,7 +106,7 @@ def columbus_weather_forecast():
 def madison_weather_forecast():
     lincoln_forecast = None
     
-    api = OpenWeatherAPI(app.config["OPEN_WEATHER_API_KEY"])
+    api = OpenWeatherAPI(os.environ['OPEN_WEATHER_API_KEY'])
     lincoln_forecast = api.get_lincoln_forecast('madison')
        
     return render_template("madison.html", lincoln_forecast=lincoln_forecast)
@@ -115,7 +115,7 @@ def madison_weather_forecast():
 def evanston_weather_forecast():
     lincoln_forecast = None
     
-    api = OpenWeatherAPI(app.config["OPEN_WEATHER_API_KEY"])
+    api = OpenWeatherAPI(os.environ['OPEN_WEATHER_API_KEY'])
     lincoln_forecast = api.get_lincoln_forecast('evanston')
        
     return render_template("evanston.html", lincoln_forecast=lincoln_forecast)
@@ -124,7 +124,7 @@ def evanston_weather_forecast():
 def iowa_city_weather_forecast():
     lincoln_forecast = None
     
-    api = OpenWeatherAPI(app.config["OPEN_WEATHER_API_KEY"])
+    api = OpenWeatherAPI(os.environ['OPEN_WEATHER_API_KEY'])
     lincoln_forecast = api.get_lincoln_forecast('iowa_city')
        
     return render_template("iowa-city.html", lincoln_forecast=lincoln_forecast)
@@ -133,7 +133,7 @@ def iowa_city_weather_forecast():
 def indianapolis_weather_forecast():
     lincoln_forecast = None
     
-    api = OpenWeatherAPI(app.config["OPEN_WEATHER_API_KEY"])
+    api = OpenWeatherAPI(os.environ['OPEN_WEATHER_API_KEY'])
     lincoln_forecast = api.get_lincoln_forecast('indianapolis')
        
     return render_template("indianapolis.html", lincoln_forecast=lincoln_forecast)
@@ -151,7 +151,7 @@ def weather_search():
 
         try: 
 
-            api = OpenWeatherAPI(app.config["OPEN_WEATHER_API_KEY"], weather_form.units.data)
+            api = OpenWeatherAPI(os.environ['OPEN_WEATHER_API_KEY'], weather_form.units.data)
             weather_item = api.get_current_weather(city, country_code)
         except ValueError as e:
             flash(str(e), "warning")
@@ -164,7 +164,7 @@ def weather_search():
 
         try: 
 
-            api = OpenWeatherAPI(app.config["OPEN_WEATHER_API_KEY"], weather_form.units.data)
+            api = OpenWeatherAPI(os.environ['OPEN_WEATHER_API_KEY'], weather_form.units.data)
             weather_list = api.get_daily_weather(city, country_code)
         except ValueError as e:
             flash(str(e), "warning")   
